@@ -13,6 +13,10 @@ import { ROIAnalysis } from "@/components/ROIAnalysis";
 const Dashboard = () => {
   const navigate = useNavigate();
 
+  const handleConfigClick = () => {
+    navigate('/configuration');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card">
@@ -26,7 +30,7 @@ const Dashboard = () => {
             </div>
             <Button 
               variant="outline" 
-              onClick={() => navigate('/configuration')}
+              onClick={handleConfigClick}
               className="flex items-center gap-2"
             >
               <Settings className="h-4 w-4" />
