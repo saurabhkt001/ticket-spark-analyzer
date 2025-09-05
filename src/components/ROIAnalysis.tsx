@@ -31,18 +31,18 @@ export const ROIAnalysis = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          <div className="text-center p-6 bg-muted/30 rounded-lg">
-            <div className="text-3xl font-bold text-primary mb-2">$624K</div>
-            <div className="text-sm text-muted-foreground">5-Year Total Savings</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="text-center p-4 bg-muted rounded-lg">
+            <div className="text-3xl font-bold text-primary">$624K</div>
+            <div className="text-muted-foreground">5-Year Total Savings</div>
           </div>
-          <div className="text-center p-6 bg-muted/30 rounded-lg">
-            <div className="text-3xl font-bold text-primary mb-2">$204K</div>
-            <div className="text-sm text-muted-foreground">Year 5 Annual Savings</div>
+          <div className="text-center p-4 bg-muted rounded-lg">
+            <div className="text-3xl font-bold text-primary">$204K</div>
+            <div className="text-muted-foreground">Year 5 Annual Savings</div>
           </div>
-          <div className="text-center p-6 bg-muted/30 rounded-lg">
-            <div className="text-3xl font-bold text-primary mb-2">10,200</div>
-            <div className="text-sm text-muted-foreground">Tickets Automated (Year 5)</div>
+          <div className="text-center p-4 bg-muted rounded-lg">
+            <div className="text-3xl font-bold text-primary">10,200</div>
+            <div className="text-muted-foreground">Tickets Automated (Year 5)</div>
           </div>
         </div>
 

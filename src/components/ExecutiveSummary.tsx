@@ -23,44 +23,7 @@ export const ExecutiveSummary = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Automation Potential Breakdown</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={summaryData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={120}
-                  dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}%`}
-                >
-                  {summaryData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Automation Categories</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={barData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="category" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="potential" fill="#8b5cf6" />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-        
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div className="text-center p-4 bg-muted rounded-lg">
             <div className="text-3xl font-bold text-primary">3,500</div>
             <div className="text-muted-foreground">Tickets Analyzed</div>
@@ -72,6 +35,41 @@ export const ExecutiveSummary = () => {
           <div className="text-center p-4 bg-muted rounded-lg">
             <div className="text-3xl font-bold text-primary">22% + 20%</div>
             <div className="text-muted-foreground">Task + Knowledge Split</div>
+          </div>
+        </div>
+        
+        <div>
+          <h3 className="text-lg font-semibold mb-6">Automation Potential Breakdown</h3>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Task Automation</span>
+                <span className="text-sm font-medium">22%</span>
+              </div>
+              <div className="w-full bg-muted rounded-full h-3">
+                <div className="bg-primary h-3 rounded-full" style={{ width: '22%' }}></div>
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Knowledge Automation</span>
+                <span className="text-sm font-medium">20%</span>
+              </div>
+              <div className="w-full bg-muted rounded-full h-3">
+                <div className="bg-accent h-3 rounded-full" style={{ width: '20%' }}></div>
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Manual Processing</span>
+                <span className="text-sm font-medium">58%</span>
+              </div>
+              <div className="w-full bg-muted rounded-full h-3">
+                <div className="bg-muted-foreground/30 h-3 rounded-full" style={{ width: '58%' }}></div>
+              </div>
+            </div>
           </div>
         </div>
       </CardContent>

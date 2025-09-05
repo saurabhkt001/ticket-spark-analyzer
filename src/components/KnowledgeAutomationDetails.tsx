@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
-const knowledgeCategories = [
+const allKnowledgeCategories = [
   {
     id: "how-to-guides",
     name: "How-to Guides & Troubleshooting",
@@ -68,10 +71,167 @@ const knowledgeCategories = [
         tickets: ["TK-6145", "TK-6167", "TK-6189"]
       }
     ]
+  },
+  {
+    id: "software-training",
+    name: "Software Training & Tutorials",
+    potential: 70,
+    subItems: [
+      {
+        name: "Microsoft Office Suite",
+        description: "Basic training and troubleshooting for Word, Excel, PowerPoint",
+        tickets: ["TK-7234", "TK-7256", "TK-7278"]
+      },
+      {
+        name: "Business Application Guides",
+        description: "Step-by-step guides for CRM, ERP, and other business software",
+        tickets: ["TK-7245", "TK-7267", "TK-7289"]
+      },
+      {
+        name: "Collaboration Tools",
+        description: "Training on Teams, SharePoint, and other collaboration platforms",
+        tickets: ["TK-7256", "TK-7278", "TK-7301"]
+      }
+    ]
+  },
+  {
+    id: "hardware-documentation",
+    name: "Hardware Documentation & Specs",
+    potential: 60,
+    subItems: [
+      {
+        name: "Equipment Specifications",
+        description: "Hardware specs, compatibility, and technical documentation",
+        tickets: ["TK-8123", "TK-8145", "TK-8167"]
+      },
+      {
+        name: "Setup Instructions",
+        description: "Hardware installation and configuration guides",
+        tickets: ["TK-8134", "TK-8156", "TK-8178"]
+      },
+      {
+        name: "Warranty Information",
+        description: "Warranty status, coverage details, and replacement procedures",
+        tickets: ["TK-8145", "TK-8167", "TK-8189"]
+      }
+    ]
+  },
+  {
+    id: "network-documentation",
+    name: "Network & Infrastructure Info",
+    potential: 55,
+    subItems: [
+      {
+        name: "Network Configuration Details",
+        description: "IP ranges, subnet information, and network topology",
+        tickets: ["TK-9234", "TK-9256", "TK-9278"]
+      },
+      {
+        name: "Service Dependencies",
+        description: "System interdependencies and service relationship maps",
+        tickets: ["TK-9245", "TK-9267", "TK-9289"]
+      },
+      {
+        name: "Performance Baselines",
+        description: "Network performance metrics and historical data",
+        tickets: ["TK-9256", "TK-9278", "TK-9301"]
+      }
+    ]
+  },
+  {
+    id: "compliance-reporting",
+    name: "Compliance & Reporting Queries",
+    potential: 50,
+    subItems: [
+      {
+        name: "Audit Requirements",
+        description: "Compliance audit procedures and documentation requirements",
+        tickets: ["TK-1023", "TK-1045", "TK-1067"]
+      },
+      {
+        name: "Report Generation",
+        description: "Automated reporting templates and data export procedures",
+        tickets: ["TK-1034", "TK-1056", "TK-1078"]
+      },
+      {
+        name: "Regulatory Standards",
+        description: "Industry compliance standards and implementation guidelines",
+        tickets: ["TK-1045", "TK-1067", "TK-1089"]
+      }
+    ]
+  },
+  {
+    id: "vendor-integration",
+    name: "Vendor & Third-party Integration",
+    potential: 45,
+    subItems: [
+      {
+        name: "API Documentation",
+        description: "Third-party API integration guides and troubleshooting",
+        tickets: ["TK-1123", "TK-1145", "TK-1167"]
+      },
+      {
+        name: "Vendor Contact Information",
+        description: "Support contacts and escalation procedures for vendors",
+        tickets: ["TK-1134", "TK-1156", "TK-1178"]
+      },
+      {
+        name: "Service Level Agreements",
+        description: "SLA details, response times, and service commitments",
+        tickets: ["TK-1145", "TK-1167", "TK-1189"]
+      }
+    ]
+  },
+  {
+    id: "disaster-recovery",
+    name: "Disaster Recovery & Business Continuity",
+    potential: 48,
+    subItems: [
+      {
+        name: "Recovery Procedures",
+        description: "Step-by-step disaster recovery and backup restoration guides",
+        tickets: ["TK-1234", "TK-1256", "TK-1278"]
+      },
+      {
+        name: "Business Continuity Plans",
+        description: "Contingency plans and alternative workflow procedures",
+        tickets: ["TK-1245", "TK-1267", "TK-1289"]
+      },
+      {
+        name: "Emergency Contacts",
+        description: "After-hours support contacts and emergency procedures",
+        tickets: ["TK-1256", "TK-1278", "TK-1301"]
+      }
+    ]
+  },
+  {
+    id: "change-management",
+    name: "Change Management & Documentation",
+    potential: 42,
+    subItems: [
+      {
+        name: "Change Request Procedures",
+        description: "Formal change management process and approval workflows",
+        tickets: ["TK-1323", "TK-1345", "TK-1367"]
+      },
+      {
+        name: "Version Control",
+        description: "Software version tracking and rollback procedures",
+        tickets: ["TK-1334", "TK-1356", "TK-1378"]
+      },
+      {
+        name: "Documentation Standards",
+        description: "Guidelines for maintaining and updating technical documentation",
+        tickets: ["TK-1345", "TK-1367", "TK-1389"]
+      }
+    ]
   }
 ];
 
 export const KnowledgeAutomationDetails = () => {
+  const [showAll, setShowAll] = useState(false);
+  const displayedCategories = showAll ? allKnowledgeCategories : allKnowledgeCategories.slice(0, 3);
+  
   return (
     <Card>
       <CardHeader>
@@ -82,7 +242,7 @@ export const KnowledgeAutomationDetails = () => {
       </CardHeader>
       <CardContent>
         <Accordion type="single" collapsible className="w-full">
-          {knowledgeCategories.map((category) => (
+          {displayedCategories.map((category) => (
             <AccordionItem key={category.id} value={category.id}>
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center justify-between w-full mr-4">
@@ -113,6 +273,28 @@ export const KnowledgeAutomationDetails = () => {
             </AccordionItem>
           ))}
         </Accordion>
+        
+        {allKnowledgeCategories.length > 3 && (
+          <div className="mt-6 text-center">
+            <Button 
+              variant="outline" 
+              onClick={() => setShowAll(!showAll)}
+              className="flex items-center gap-2"
+            >
+              {showAll ? (
+                <>
+                  <ChevronUp className="h-4 w-4" />
+                  Show Less
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="h-4 w-4" />
+                  See More ({allKnowledgeCategories.length - 3} more categories)
+                </>
+              )}
+            </Button>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

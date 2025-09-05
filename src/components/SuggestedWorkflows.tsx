@@ -37,6 +37,142 @@ const taskWorkflows = [
         effort: "Medium"
       }
     ]
+  },
+  {
+    category: "Access & Permission Changes",
+    suggestions: [
+      {
+        type: "Role-Based Access Control",
+        description: "Implement automated group membership based on job roles",
+        impact: "High",
+        effort: "High"
+      },
+      {
+        type: "Approval Workflow Engine",
+        description: "Create multi-level approval workflows for access requests",
+        impact: "Medium",
+        effort: "Medium"
+      }
+    ]
+  },
+  {
+    category: "Hardware & Equipment Requests",
+    suggestions: [
+      {
+        type: "Asset Management Integration",
+        description: "Automated inventory tracking and procurement workflows",
+        impact: "Medium",
+        effort: "High"
+      },
+      {
+        type: "Standard Configuration Packages",
+        description: "Pre-configured device images for rapid deployment",
+        impact: "High",
+        effort: "Medium"
+      }
+    ]
+  },
+  {
+    category: "Network & Connectivity Issues",
+    suggestions: [
+      {
+        type: "Automated Network Diagnostics",
+        description: "Self-running network troubleshooting and repair tools",
+        impact: "High",
+        effort: "High"
+      },
+      {
+        type: "Zero-Touch VPN Setup",
+        description: "Automated VPN configuration based on user profiles",
+        impact: "Medium",
+        effort: "Medium"
+      }
+    ]
+  },
+  {
+    category: "Email & Calendar Issues",
+    suggestions: [
+      {
+        type: "Configuration Templates",
+        description: "Automated email client setup with organizational policies",
+        impact: "High",
+        effort: "Low"
+      },
+      {
+        type: "Calendar Bot Assistant",
+        description: "AI-powered calendar management and conflict resolution",
+        impact: "Medium",
+        effort: "High"
+      }
+    ]
+  },
+  {
+    category: "System Performance & Optimization",
+    suggestions: [
+      {
+        type: "Automated Maintenance Scripts",
+        description: "Scheduled system optimization and cleanup routines",
+        impact: "Medium",
+        effort: "Low"
+      },
+      {
+        type: "Performance Monitoring Alerts",
+        description: "Proactive performance issue detection and resolution",
+        impact: "High",
+        effort: "Medium"
+      }
+    ]
+  },
+  {
+    category: "Backup & Data Recovery",
+    suggestions: [
+      {
+        type: "Self-Service File Recovery",
+        description: "User-accessible backup browsing and file restoration",
+        impact: "High",
+        effort: "Medium"
+      },
+      {
+        type: "Automated Backup Verification",
+        description: "Continuous backup integrity checking and reporting",
+        impact: "Medium",
+        effort: "Low"
+      }
+    ]
+  },
+  {
+    category: "Printing & Scanning Services",
+    suggestions: [
+      {
+        type: "Universal Print Drivers",
+        description: "Automated printer detection and driver installation",
+        impact: "High",
+        effort: "Low"
+      },
+      {
+        type: "Print Queue Management Bot",
+        description: "Automated print job troubleshooting and queue clearing",
+        impact: "Medium",
+        effort: "Medium"
+      }
+    ]
+  },
+  {
+    category: "Security & Compliance",
+    suggestions: [
+      {
+        type: "Automated Security Scanning",
+        description: "Continuous security assessment and remediation workflows",
+        impact: "High",
+        effort: "High"
+      },
+      {
+        type: "Compliance Monitoring Dashboard",
+        description: "Real-time compliance tracking and reporting automation",
+        impact: "Medium",
+        effort: "Medium"
+      }
+    ]
   }
 ];
 
@@ -59,6 +195,23 @@ const knowledgeWorkflows = [
     ]
   },
   {
+    category: "Policy & Procedure Inquiries",
+    suggestions: [
+      {
+        type: "Policy Chatbot",
+        description: "AI assistant for instant policy questions and clarifications",
+        impact: "High",
+        effort: "Medium"
+      },
+      {
+        type: "Interactive Policy Portal",
+        description: "Searchable policy database with contextual examples",
+        impact: "Medium",
+        effort: "Low"
+      }
+    ]
+  },
+  {
     category: "System Status & Outage Information",
     suggestions: [
       {
@@ -71,6 +224,125 @@ const knowledgeWorkflows = [
         type: "Proactive Notifications",
         description: "Automated alerts and notifications for service disruptions",
         impact: "Medium",
+        effort: "Medium"
+      }
+    ]
+  },
+  {
+    category: "Software Training & Tutorials",
+    suggestions: [
+      {
+        type: "Interactive Learning Modules",
+        description: "Hands-on training simulations and guided tutorials",
+        impact: "High",
+        effort: "High"
+      },
+      {
+        type: "Personalized Learning Paths",
+        description: "AI-driven training recommendations based on user roles",
+        impact: "Medium",
+        effort: "Medium"
+      }
+    ]
+  },
+  {
+    category: "Hardware Documentation & Specs",
+    suggestions: [
+      {
+        type: "Dynamic Documentation System",
+        description: "Auto-updating hardware specs and compatibility matrix",
+        impact: "Medium",
+        effort: "Medium"
+      },
+      {
+        type: "AR-Powered Setup Guides",
+        description: "Augmented reality hardware installation assistance",
+        impact: "High",
+        effort: "High"
+      }
+    ]
+  },
+  {
+    category: "Network & Infrastructure Info",
+    suggestions: [
+      {
+        type: "Network Topology Visualizer",
+        description: "Interactive network maps with real-time status updates",
+        impact: "Medium",
+        effort: "High"
+      },
+      {
+        type: "Infrastructure Knowledge Graph",
+        description: "AI-powered relationship mapping of IT infrastructure",
+        impact: "High",
+        effort: "High"
+      }
+    ]
+  },
+  {
+    category: "Compliance & Reporting Queries",
+    suggestions: [
+      {
+        type: "Automated Report Generation",
+        description: "Self-service compliance reporting with customizable templates",
+        impact: "High",
+        effort: "Medium"
+      },
+      {
+        type: "Compliance Knowledge Assistant",
+        description: "AI chatbot for regulatory requirements and guidelines",
+        impact: "Medium",
+        effort: "Medium"
+      }
+    ]
+  },
+  {
+    category: "Vendor & Third-party Integration",
+    suggestions: [
+      {
+        type: "Vendor Portal Integration",
+        description: "Unified vendor information and support ticket routing",
+        impact: "Medium",
+        effort: "High"
+      },
+      {
+        type: "API Documentation Hub",
+        description: "Centralized, searchable API documentation with examples",
+        impact: "High",
+        effort: "Low"
+      }
+    ]
+  },
+  {
+    category: "Disaster Recovery & Business Continuity",
+    suggestions: [
+      {
+        type: "Recovery Procedure Automation",
+        description: "Step-by-step guided disaster recovery workflows",
+        impact: "High",
+        effort: "Medium"
+      },
+      {
+        type: "Emergency Response Assistant",
+        description: "AI-powered emergency procedure guidance and escalation",
+        impact: "Medium",
+        effort: "High"
+      }
+    ]
+  },
+  {
+    category: "Change Management & Documentation",
+    suggestions: [
+      {
+        type: "Automated Documentation Updates",
+        description: "AI-powered documentation maintenance and version control",
+        impact: "Medium",
+        effort: "High"
+      },
+      {
+        type: "Change Impact Analysis Tool",
+        description: "Automated assessment of change request impacts and risks",
+        impact: "High",
         effort: "Medium"
       }
     ]
